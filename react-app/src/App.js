@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Example from './editor/editor';
+import DataFetchingOnClickWithBearer from './editor/button';
+import { BrowserRouter as Router, Routes , Route, Switch } from 'react-router-dom';
+import MyComponent from './editor/dummy';
+import MainComponent from './editor/maincomponent';
+// import DataFetchingOnClickWithBearer from './editor/button';
+// import editor from './editor/editor';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* <Switch> */}
+      <Routes>
+        <Route exact path='/' Component={MainComponent}/>
+        <Route path='/newtab' Component={DataFetchingOnClickWithBearer}/>
+      </Routes>
+      {/* </Switch> */}
+    </Router>
   );
 }
 

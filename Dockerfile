@@ -1,23 +1,23 @@
-# This image run webpack sample and node for development
-# all files are running inside the container even the node_modules
-#
-# TIP 1: the node_modules folder will be empty in the local folder
-# TIP 2: if you want to install new dependencies like: npm install <new_dep>, you have to recreate the image
-# TIP 2: run bash from the the node image:
-# $ docker run -it --entrypoint /bin/bash <image_name>
+# Use an official Node.js runtime as the base image
+FROM node:14-alpine
 
-# FROM node:14.18.1-buster
-FROM node:lts-alpine3.14
-
-
-# add `/app/node_modules/.bin` to the $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-COPY /react-app/package.json /app/package.json
-
+# Set the working directory in the container
 WORKDIR /app
 
-RUN npm install
-RUN npm install -g react-scripts
+# Copy the package.json and package-lock.json files to the working directory
+COPY react-app/package*.json ./
 
-CMD echo 'Image Builded - docker-react'
+# Install project dependencies
+RUN npm install
+
+# Copy the entire React app to the working directory
+COPY react-app .
+
+# Build the React app (you can customize this if needed)
+RUN npm run build
+
+# Expose the port that the React app will run on (usually 3000)
+EXPOSE 3000
+
+# Start the React app
+CMD ["npm", "start"]

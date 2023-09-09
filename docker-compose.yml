@@ -1,17 +1,14 @@
-version: '3.7'
+version: '3'
 services:
-  app:
+  react-app:
     build:
       context: .
-    container_name: react_front-${CONTAINER_PREFIX}
-    restart: always
-    volumes:
-      - "./react-app/public:/app/public"
-      - "./react-app/src:/app/src"
-    command: npm start
-    
+      dockerfile: Dockerfile
     ports:
-      - ${APP_PORT}:3000
-
+      - "3000:3000" # Map the container's port 3000 to the host's port 3000
+    volumes:
+      - ./react-app:/app # Mount the local react-app directory into the container
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=development # Set the Node environment to development
+    stdin_open: true
+    tty: true
