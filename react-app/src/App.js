@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Example from './editor/editor';
-import DataFetchingOnClickWithBearer from './editor/button';
+import AppTest from './editor/button';
 import { BrowserRouter as Router, Routes , Route, Switch } from 'react-router-dom';
 import MyComponent from './editor/dummy';
 import MainComponent from './editor/maincomponent';
@@ -15,7 +15,7 @@ function App() {
       {/* <Switch> */}
       <Routes>
         <Route exact path='/' Component={MainComponent}/>
-        <Route path='/newtab' Component={DataFetchingOnClickWithBearer}/>
+        <Route path='/newtab' Component={MyComponent}/>
       </Routes>
       {/* </Switch> */}
     </Router>

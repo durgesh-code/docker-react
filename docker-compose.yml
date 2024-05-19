@@ -12,3 +12,11 @@ services:
       - NODE_ENV=development # Set the Node environment to development
     stdin_open: true
     tty: true
+
+  word-processor-server: 
+    image: syncfusion/word-processor-server:latest 
+    environment: 
+      #Provide your license key for activation
+      SYNCFUSION_LICENSE_KEY: ORg4AjUWIQA/Gnt2UFhhQlJBfVldXHxLflFyVWJYdV54fldBcC0sT3RfQFljTH5Rd0RjUH1bd3NVQw==
+    ports:
+    - "6002:80"

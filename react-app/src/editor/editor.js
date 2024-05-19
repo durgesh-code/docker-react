@@ -13,7 +13,7 @@ function MyDocumentEditor(props) {
     <div style={{ height: '100vh' }}>
     <DocumentEditor
         id="docxForComments"
-        documentServerUrl="http://34.102.77.113:80"
+        documentServerUrl="http://34.131.67.236:80"
         config={props.config}
         height="100%"
         width="100%"
